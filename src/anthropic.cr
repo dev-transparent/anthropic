@@ -5,7 +5,7 @@ require "http/client"
 
 module Anthropic
   Habitat.create do
-    setting url : String = "https://api.turso.tech"
+    setting url : String = "https://api.anthropic.com"
     setting api_key : String
     setting version : String = "2023-06-01"
     setting pool_options : DB::Pool::Options = DB::Pool::Options.new(initial_pool_size: 0, max_idle_pool_size: 25)
