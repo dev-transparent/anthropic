@@ -15,7 +15,7 @@ module Anthropic
 
   def self.pool : DB::Pool(HTTP::Client)
     @@pool ||= DB::Pool.new(Anthropic.settings.pool_options) {
-      client = HTTP::Client.new(URI.parse(Turso.settings.url))
+      client = HTTP::Client.new(URI.parse(Anthropic.settings.url))
 
       client.before_request do |request|
         request.headers["x-api-key"] = Anthropic.settings.api_key
