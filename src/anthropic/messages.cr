@@ -44,14 +44,16 @@ module Anthropic
     property content : Array(ContentBlock)
 
 
-    def self.create(model : String, max_tokens : Int32, messages : Array(Message))
+    def self.create(model : String, max_tokens : Int32, messages : Array(Message), system : String? = nil, temperature : Int32? = nil)
       response = Anthropic.pool.checkout do |client|
         client.post(
           path: "/v1/messages",
           body: {
             "model" => model,
             "max_tokens" => max_tokens,
-            "messages" => messages
+            "messages" => messages,
+            "system" => system,
+            "temperature" => temperature
           }.to_json
         )
       end
