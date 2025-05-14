@@ -66,7 +66,7 @@ module Anthropic
 
       case response.status
       when .ok?
-        Messages.from_json(response)
+        Messages.from_json(response.body)
       else
         raise RequestError.new
       end
