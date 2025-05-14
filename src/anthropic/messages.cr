@@ -44,7 +44,7 @@ module Anthropic
     property content : Array(ContentBlock)
 
 
-    def self.create(model : String, max_tokens : Int32, messages : Array(Message), system : String? = nil, temperature : Int32? = nil)
+    def self.create(model : String, max_tokens : Int32, messages : Array(Message), system : String? = nil, temperature : Float32? = nil)
       response = Anthropic.pool.checkout do |client|
         client.post(
           path: "/v1/messages",
