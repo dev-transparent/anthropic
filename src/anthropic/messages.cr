@@ -68,7 +68,7 @@ module Anthropic
       when .ok?
         Messages.from_json(response.body)
       else
-        raise RequestError.new
+        raise RequestError.new(ErrorResponse.from_json(response.body))
       end
     end
   end
