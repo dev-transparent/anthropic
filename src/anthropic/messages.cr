@@ -4,6 +4,9 @@ module Anthropic
 
     property type : String = "text"
     property text : String
+
+    def initialize(@text)
+    end
   end
 
   alias ContentBlock = TextContentBlock
@@ -13,6 +16,9 @@ module Anthropic
 
     property role : String
     property content : String | Array(ContentBlock)
+
+    def initialize(@role, @content)
+    end
   end
 
   struct ServerToolUse
